@@ -1,0 +1,9 @@
+2026-04-29 11:34:12  INFO      VENTES_FLASH              ╔══ DÉBUT DU JOB : VENTES_FLASH ══╗
+2026-04-29 11:34:12  INFO      VENTES_FLASH              ────────────────────────────────────────────────────────────
+2026-04-29 11:34:12  INFO      VENTES_FLASH              Sortie      : exports\sales\customers.csv
+2026-04-29 11:34:12  INFO      VENTES_FLASH              Séparateur  : ','  |  Encodage : utf-8-sig  |  Batch : 5000 lignes
+2026-04-29 11:34:12  INFO      VENTES_FLASH              Colonnes (4) : ['ID', 'NAME', 'EMAIL', 'COUNTRY']
+2026-04-29 11:34:12  INFO      VENTES_FLASH                100 lignes extraites…
+2026-04-29 11:34:12  INFO      VENTES_FLASH              ✅  SUCCÈS : 100 lignes  →  exports\sales\customers.csv  (0.0 s)
+2026-04-29 11:34:12  INFO      VENTES_FLASH              ────────────────────────────────────────────────────────────
+2026-04-29 11:34:12  INFO      VENTES_FLASH              ╚══ FIN DU JOB : VENTES_FLASH ══╝  100 lignes extraites

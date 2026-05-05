@@ -1,0 +1,1 @@
+select * from ALL_TABLES;

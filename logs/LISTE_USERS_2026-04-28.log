@@ -1,0 +1,83 @@
+2026-04-28 11:37:49  INFO      LISTE_USERS               ╔══ DÉBUT DU JOB : LISTE_USERS ══╗
+2026-04-28 11:37:49  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-04-28 11:37:49  INFO      LISTE_USERS               Sortie      : exports\rh\export_utilisateurs.csv
+2026-04-28 11:37:49  INFO      LISTE_USERS               Séparateur  : ';'  |  Encodage : utf-8-sig  |  Batch : 5000 lignes
+2026-04-28 11:37:49  ERROR     LISTE_USERS               ❌  ÉCHEC après 0.0 s : DPY-2066: an empty statement cannot be executed
+Traceback (most recent call last):
+  File "E:\data_pipeline\python\extract_oracle\extractor.py", line 52, in run
+    cursor.execute(query)
+  File "C:\Users\zouhairelazizy\AppData\Local\Programs\Python\Python310\lib\site-packages\oracledb\cursor.py", line 837, in execute
+    self._prepare_for_execute(statement, parameters, keyword_parameters)
+  File "C:\Users\zouhairelazizy\AppData\Local\Programs\Python\Python310\lib\site-packages\oracledb\cursor.py", line 156, in _prepare_for_execute
+    self._normalize_statement(statement),
+  File "C:\Users\zouhairelazizy\AppData\Local\Programs\Python\Python310\lib\site-packages\oracledb\cursor.py", line 136, in _normalize_statement
+    errors._raise_err(errors.ERR_EMPTY_STATEMENT)
+  File "C:\Users\zouhairelazizy\AppData\Local\Programs\Python\Python310\lib\site-packages\oracledb\errors.py", line 199, in _raise_err
+    raise error.exc_type(error) from cause
+oracledb.exceptions.ProgrammingError: DPY-2066: an empty statement cannot be executed
+2026-04-28 11:37:49  ERROR     LISTE_USERS               ╚══ FIN DU JOB : LISTE_USERS ══╝  ÉCHEC
+2026-04-28 11:40:26  INFO      LISTE_USERS               ╔══ DÉBUT DU JOB : LISTE_USERS ══╗
+2026-04-28 11:40:26  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-04-28 11:40:26  INFO      LISTE_USERS               Sortie      : exports\rh\export_utilisateurs.csv
+2026-04-28 11:40:26  INFO      LISTE_USERS               Séparateur  : ';'  |  Encodage : utf-8-sig  |  Batch : 5000 lignes
+2026-04-28 11:40:26  ERROR     LISTE_USERS               ❌  ÉCHEC après 0.0 s : ORA-00923: FROM keyword not found where expected
+Help: https://docs.oracle.com/error-help/db/ora-00923/
+Traceback (most recent call last):
+  File "E:\data_pipeline\python\extract_oracle\extractor.py", line 52, in run
+    cursor.execute(query)
+  File "C:\Users\zouhairelazizy\AppData\Local\Programs\Python\Python310\lib\site-packages\oracledb\cursor.py", line 844, in execute
+    impl.execute(self)
+  File "src/oracledb/impl/thin/cursor.pyx", line 277, in oracledb.thin_impl.ThinCursorImpl.execute
+  File "src/oracledb/impl/thin/protocol.pyx", line 501, in oracledb.thin_impl.Protocol._process_single_message
+  File "src/oracledb/impl/thin/protocol.pyx", line 502, in oracledb.thin_impl.Protocol._process_single_message
+  File "src/oracledb/impl/thin/protocol.pyx", line 494, in oracledb.thin_impl.Protocol._process_message
+  File "src/oracledb/impl/thin/messages/base.pyx", line 102, in oracledb.thin_impl.Message._check_and_raise_exception
+oracledb.exceptions.DatabaseError: ORA-00923: FROM keyword not found where expected
+Help: https://docs.oracle.com/error-help/db/ora-00923/
+2026-04-28 11:40:26  ERROR     LISTE_USERS               ╚══ FIN DU JOB : LISTE_USERS ══╝  ÉCHEC
+2026-04-28 11:41:14  INFO      LISTE_USERS               ╔══ DÉBUT DU JOB : LISTE_USERS ══╗
+2026-04-28 11:41:14  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-04-28 11:41:14  INFO      LISTE_USERS               Sortie      : exports\rh\export_utilisateurs.csv
+2026-04-28 11:41:14  INFO      LISTE_USERS               Séparateur  : ';'  |  Encodage : utf-8-sig  |  Batch : 5000 lignes
+2026-04-28 11:41:14  ERROR     LISTE_USERS               ❌  ÉCHEC après 0.0 s : ORA-00923: FROM keyword not found where expected
+Help: https://docs.oracle.com/error-help/db/ora-00923/
+Traceback (most recent call last):
+  File "E:\data_pipeline\python\extract_oracle\extractor.py", line 52, in run
+    cursor.execute(query)
+  File "C:\Users\zouhairelazizy\AppData\Local\Programs\Python\Python310\lib\site-packages\oracledb\cursor.py", line 844, in execute
+    impl.execute(self)
+  File "src/oracledb/impl/thin/cursor.pyx", line 277, in oracledb.thin_impl.ThinCursorImpl.execute
+  File "src/oracledb/impl/thin/protocol.pyx", line 501, in oracledb.thin_impl.Protocol._process_single_message
+  File "src/oracledb/impl/thin/protocol.pyx", line 502, in oracledb.thin_impl.Protocol._process_single_message
+  File "src/oracledb/impl/thin/protocol.pyx", line 494, in oracledb.thin_impl.Protocol._process_message
+  File "src/oracledb/impl/thin/messages/base.pyx", line 102, in oracledb.thin_impl.Message._check_and_raise_exception
+oracledb.exceptions.DatabaseError: ORA-00923: FROM keyword not found where expected
+Help: https://docs.oracle.com/error-help/db/ora-00923/
+2026-04-28 11:41:14  ERROR     LISTE_USERS               ╚══ FIN DU JOB : LISTE_USERS ══╝  ÉCHEC
+2026-04-28 11:42:45  INFO      LISTE_USERS               ╔══ DÉBUT DU JOB : LISTE_USERS ══╗
+2026-04-28 11:42:45  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-04-28 11:42:45  INFO      LISTE_USERS               Sortie      : exports\rh\export_utilisateurs.csv
+2026-04-28 11:42:45  INFO      LISTE_USERS               Séparateur  : ';'  |  Encodage : utf-8-sig  |  Batch : 5000 lignes
+2026-04-28 11:42:45  INFO      LISTE_USERS               Colonnes (77) : ['OWNER', 'TABLE_NAME', 'TABLESPACE_NAME', 'CLUSTER_NAME', 'IOT_NAME', 'STATUS', 'PCT_FREE', 'PCT_USED', 'INI_TRANS', 'MAX_TRANS', 'INITIAL_EXTENT', 'NEXT_EXTENT', 'MIN_EXTENTS', 'MAX_EXTENTS', 'PCT_INCREASE', 'FREELISTS', 'FREELIST_GROUPS', 'LOGGING', 'BACKED_UP', 'NUM_ROWS', 'BLOCKS', 'EMPTY_BLOCKS', 'AVG_SPACE', 'CHAIN_CNT', 'AVG_ROW_LEN', 'AVG_SPACE_FREELIST_BLOCKS', 'NUM_FREELIST_BLOCKS', 'DEGREE', 'INSTANCES', 'CACHE', 'TABLE_LOCK', 'SAMPLE_SIZE', 'LAST_ANALYZED', 'PARTITIONED', 'IOT_TYPE', 'TEMPORARY', 'SECONDARY', 'NESTED', 'BUFFER_POOL', 'FLASH_CACHE', 'CELL_FLASH_CACHE', 'ROW_MOVEMENT', 'GLOBAL_STATS', 'USER_STATS', 'DURATION', 'SKIP_CORRUPT', 'MONITORING', 'CLUSTER_OWNER', 'DEPENDENCIES', 'COMPRESSION', 'COMPRESS_FOR', 'DROPPED', 'READ_ONLY', 'SEGMENT_CREATED', 'RESULT_CACHE', 'CLUSTERING', 'ACTIVITY_TRACKING', 'DML_TIMESTAMP', 'HAS_IDENTITY', 'CONTAINER_DATA', 'INMEMORY', 'INMEMORY_PRIORITY', 'INMEMORY_DISTRIBUTE', 'INMEMORY_COMPRESSION', 'INMEMORY_DUPLICATE', 'DEFAULT_COLLATION', 'DUPLICATED', 'SHARDED', 'EXTERNAL', 'CELLMEMORY', 'CONTAINERS_DEFAULT', 'CONTAINER_MAP', 'EXTENDED_DATA_LINK', 'EXTENDED_DATA_LINK_MAP', 'INMEMORY_SERVICE', 'INMEMORY_SERVICE_NAME', 'CONTAINER_MAP_OBJECT']
+2026-04-28 11:42:45  INFO      LISTE_USERS                 671 lignes extraites…
+2026-04-28 11:42:45  INFO      LISTE_USERS               ✅  SUCCÈS : 671 lignes  →  exports\rh\export_utilisateurs.csv  (0.4 s)
+2026-04-28 11:42:45  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-04-28 11:42:45  INFO      LISTE_USERS               ╚══ FIN DU JOB : LISTE_USERS ══╝  671 lignes extraites
+2026-04-28 11:45:52  INFO      LISTE_USERS               ╔══ DÉBUT DU JOB : LISTE_USERS ══╗
+2026-04-28 11:45:52  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-04-28 11:45:52  INFO      LISTE_USERS               Sortie      : exports\rh\export_utilisateurs.csv
+2026-04-28 11:45:52  INFO      LISTE_USERS               Séparateur  : ';'  |  Encodage : utf-8-sig  |  Batch : 5000 lignes
+2026-04-28 11:45:53  INFO      LISTE_USERS               Colonnes (77) : ['OWNER', 'TABLE_NAME', 'TABLESPACE_NAME', 'CLUSTER_NAME', 'IOT_NAME', 'STATUS', 'PCT_FREE', 'PCT_USED', 'INI_TRANS', 'MAX_TRANS', 'INITIAL_EXTENT', 'NEXT_EXTENT', 'MIN_EXTENTS', 'MAX_EXTENTS', 'PCT_INCREASE', 'FREELISTS', 'FREELIST_GROUPS', 'LOGGING', 'BACKED_UP', 'NUM_ROWS', 'BLOCKS', 'EMPTY_BLOCKS', 'AVG_SPACE', 'CHAIN_CNT', 'AVG_ROW_LEN', 'AVG_SPACE_FREELIST_BLOCKS', 'NUM_FREELIST_BLOCKS', 'DEGREE', 'INSTANCES', 'CACHE', 'TABLE_LOCK', 'SAMPLE_SIZE', 'LAST_ANALYZED', 'PARTITIONED', 'IOT_TYPE', 'TEMPORARY', 'SECONDARY', 'NESTED', 'BUFFER_POOL', 'FLASH_CACHE', 'CELL_FLASH_CACHE', 'ROW_MOVEMENT', 'GLOBAL_STATS', 'USER_STATS', 'DURATION', 'SKIP_CORRUPT', 'MONITORING', 'CLUSTER_OWNER', 'DEPENDENCIES', 'COMPRESSION', 'COMPRESS_FOR', 'DROPPED', 'READ_ONLY', 'SEGMENT_CREATED', 'RESULT_CACHE', 'CLUSTERING', 'ACTIVITY_TRACKING', 'DML_TIMESTAMP', 'HAS_IDENTITY', 'CONTAINER_DATA', 'INMEMORY', 'INMEMORY_PRIORITY', 'INMEMORY_DISTRIBUTE', 'INMEMORY_COMPRESSION', 'INMEMORY_DUPLICATE', 'DEFAULT_COLLATION', 'DUPLICATED', 'SHARDED', 'EXTERNAL', 'CELLMEMORY', 'CONTAINERS_DEFAULT', 'CONTAINER_MAP', 'EXTENDED_DATA_LINK', 'EXTENDED_DATA_LINK_MAP', 'INMEMORY_SERVICE', 'INMEMORY_SERVICE_NAME', 'CONTAINER_MAP_OBJECT']
+2026-04-28 11:45:53  INFO      LISTE_USERS                 671 lignes extraites…
+2026-04-28 11:45:53  INFO      LISTE_USERS               ✅  SUCCÈS : 671 lignes  →  exports\rh\export_utilisateurs.csv  (0.7 s)
+2026-04-28 11:45:53  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-04-28 11:45:53  INFO      LISTE_USERS               ╚══ FIN DU JOB : LISTE_USERS ══╝  671 lignes extraites
+2026-04-28 13:21:03  INFO      LISTE_USERS               ╔══ DÉBUT DU JOB : LISTE_USERS ══╗
+2026-04-28 13:21:03  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-04-28 13:21:03  INFO      LISTE_USERS               Sortie      : exports\rh\export_utilisateurs.csv
+2026-04-28 13:21:03  INFO      LISTE_USERS               Séparateur  : ';'  |  Encodage : utf-8-sig  |  Batch : 5000 lignes
+2026-04-28 13:21:03  INFO      LISTE_USERS               Colonnes (77) : ['OWNER', 'TABLE_NAME', 'TABLESPACE_NAME', 'CLUSTER_NAME', 'IOT_NAME', 'STATUS', 'PCT_FREE', 'PCT_USED', 'INI_TRANS', 'MAX_TRANS', 'INITIAL_EXTENT', 'NEXT_EXTENT', 'MIN_EXTENTS', 'MAX_EXTENTS', 'PCT_INCREASE', 'FREELISTS', 'FREELIST_GROUPS', 'LOGGING', 'BACKED_UP', 'NUM_ROWS', 'BLOCKS', 'EMPTY_BLOCKS', 'AVG_SPACE', 'CHAIN_CNT', 'AVG_ROW_LEN', 'AVG_SPACE_FREELIST_BLOCKS', 'NUM_FREELIST_BLOCKS', 'DEGREE', 'INSTANCES', 'CACHE', 'TABLE_LOCK', 'SAMPLE_SIZE', 'LAST_ANALYZED', 'PARTITIONED', 'IOT_TYPE', 'TEMPORARY', 'SECONDARY', 'NESTED', 'BUFFER_POOL', 'FLASH_CACHE', 'CELL_FLASH_CACHE', 'ROW_MOVEMENT', 'GLOBAL_STATS', 'USER_STATS', 'DURATION', 'SKIP_CORRUPT', 'MONITORING', 'CLUSTER_OWNER', 'DEPENDENCIES', 'COMPRESSION', 'COMPRESS_FOR', 'DROPPED', 'READ_ONLY', 'SEGMENT_CREATED', 'RESULT_CACHE', 'CLUSTERING', 'ACTIVITY_TRACKING', 'DML_TIMESTAMP', 'HAS_IDENTITY', 'CONTAINER_DATA', 'INMEMORY', 'INMEMORY_PRIORITY', 'INMEMORY_DISTRIBUTE', 'INMEMORY_COMPRESSION', 'INMEMORY_DUPLICATE', 'DEFAULT_COLLATION', 'DUPLICATED', 'SHARDED', 'EXTERNAL', 'CELLMEMORY', 'CONTAINERS_DEFAULT', 'CONTAINER_MAP', 'EXTENDED_DATA_LINK', 'EXTENDED_DATA_LINK_MAP', 'INMEMORY_SERVICE', 'INMEMORY_SERVICE_NAME', 'CONTAINER_MAP_OBJECT']
+2026-04-28 13:21:04  INFO      LISTE_USERS                 671 lignes extraites…
+2026-04-28 13:21:04  INFO      LISTE_USERS               ✅  SUCCÈS : 671 lignes  →  exports\rh\export_utilisateurs.csv  (0.2 s)
+2026-04-28 13:21:04  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-04-28 13:21:04  INFO      LISTE_USERS               ╚══ FIN DU JOB : LISTE_USERS ══╝  671 lignes extraites

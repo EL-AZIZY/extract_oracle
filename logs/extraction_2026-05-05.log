@@ -1,0 +1,36 @@
+2026-05-05 11:38:39  INFO      root                      ════════════════════════════════════════════════════════════════════════
+2026-05-05 11:38:39  INFO      root                      Démarrage extraction  |  log global : E:\data_pipeline\python\extract_oracle\logs\extraction_2026-05-05.log
+2026-05-05 11:38:39  INFO      root                      ════════════════════════════════════════════════════════════════════════
+2026-05-05 11:38:39  WARNING   security                  ⚠️  Windows détecté : vérifiez manuellement que 'oracle_connection.ini' n'est accessible qu'à votre compte utilisateur.
+2026-05-05 11:38:39  INFO      root                      Jobs à traiter : ['LISTE_USERS', 'VENTES_FLASH']
+2026-05-05 11:38:39  INFO      connection                Driver utilisé : oracledb
+2026-05-05 11:38:39  INFO      connection                Connexion à localhost:1522/xe en tant que or_dbt …
+2026-05-05 11:38:40  INFO      connection                Connecté ✓
+2026-05-05 11:38:40  INFO      LISTE_USERS               ╔══ DÉBUT DU JOB : LISTE_USERS ══╗
+2026-05-05 11:38:40  INFO      query_loader              Requête chargée depuis : get_users.sql  (24 caractères)
+2026-05-05 11:38:40  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-05-05 11:38:40  INFO      LISTE_USERS               Sortie      : exports\rh\export_utilisateurs.csv
+2026-05-05 11:38:40  INFO      LISTE_USERS               Séparateur  : ','  |  Encodage : utf-8-sig  |  Batch : 5000 lignes
+2026-05-05 11:38:40  INFO      LISTE_USERS               Colonnes (77) : ['OWNER', 'TABLE_NAME', 'TABLESPACE_NAME', 'CLUSTER_NAME', 'IOT_NAME', 'STATUS', 'PCT_FREE', 'PCT_USED', 'INI_TRANS', 'MAX_TRANS', 'INITIAL_EXTENT', 'NEXT_EXTENT', 'MIN_EXTENTS', 'MAX_EXTENTS', 'PCT_INCREASE', 'FREELISTS', 'FREELIST_GROUPS', 'LOGGING', 'BACKED_UP', 'NUM_ROWS', 'BLOCKS', 'EMPTY_BLOCKS', 'AVG_SPACE', 'CHAIN_CNT', 'AVG_ROW_LEN', 'AVG_SPACE_FREELIST_BLOCKS', 'NUM_FREELIST_BLOCKS', 'DEGREE', 'INSTANCES', 'CACHE', 'TABLE_LOCK', 'SAMPLE_SIZE', 'LAST_ANALYZED', 'PARTITIONED', 'IOT_TYPE', 'TEMPORARY', 'SECONDARY', 'NESTED', 'BUFFER_POOL', 'FLASH_CACHE', 'CELL_FLASH_CACHE', 'ROW_MOVEMENT', 'GLOBAL_STATS', 'USER_STATS', 'DURATION', 'SKIP_CORRUPT', 'MONITORING', 'CLUSTER_OWNER', 'DEPENDENCIES', 'COMPRESSION', 'COMPRESS_FOR', 'DROPPED', 'READ_ONLY', 'SEGMENT_CREATED', 'RESULT_CACHE', 'CLUSTERING', 'ACTIVITY_TRACKING', 'DML_TIMESTAMP', 'HAS_IDENTITY', 'CONTAINER_DATA', 'INMEMORY', 'INMEMORY_PRIORITY', 'INMEMORY_DISTRIBUTE', 'INMEMORY_COMPRESSION', 'INMEMORY_DUPLICATE', 'DEFAULT_COLLATION', 'DUPLICATED', 'SHARDED', 'EXTERNAL', 'CELLMEMORY', 'CONTAINERS_DEFAULT', 'CONTAINER_MAP', 'EXTENDED_DATA_LINK', 'EXTENDED_DATA_LINK_MAP', 'INMEMORY_SERVICE', 'INMEMORY_SERVICE_NAME', 'CONTAINER_MAP_OBJECT']
+2026-05-05 11:38:41  INFO      LISTE_USERS                 114 lignes extraites…
+2026-05-05 11:38:41  INFO      LISTE_USERS               ✅  SUCCÈS : 114 lignes  →  exports\rh\export_utilisateurs.csv  (0.8 s)
+2026-05-05 11:38:41  INFO      LISTE_USERS               ────────────────────────────────────────────────────────────
+2026-05-05 11:38:41  INFO      LISTE_USERS               ╚══ FIN DU JOB : LISTE_USERS ══╝  114 lignes extraites
+2026-05-05 11:38:41  INFO      VENTES_FLASH              ╔══ DÉBUT DU JOB : VENTES_FLASH ══╗
+2026-05-05 11:38:41  INFO      query_loader              Requête générée automatiquement : SELECT * FROM CUSTOMERS
+2026-05-05 11:38:41  INFO      VENTES_FLASH              ────────────────────────────────────────────────────────────
+2026-05-05 11:38:41  INFO      VENTES_FLASH              Sortie      : exports\sales\customers.csv
+2026-05-05 11:38:41  INFO      VENTES_FLASH              Séparateur  : ','  |  Encodage : utf-8-sig  |  Batch : 5000 lignes
+2026-05-05 11:38:41  INFO      VENTES_FLASH              Colonnes (4) : ['ID', 'NAME', 'EMAIL', 'COUNTRY']
+2026-05-05 11:38:41  INFO      VENTES_FLASH                100 lignes extraites…
+2026-05-05 11:38:41  INFO      VENTES_FLASH              ✅  SUCCÈS : 100 lignes  →  exports\sales\customers.csv  (0.0 s)
+2026-05-05 11:38:41  INFO      VENTES_FLASH              ────────────────────────────────────────────────────────────
+2026-05-05 11:38:41  INFO      VENTES_FLASH              ╚══ FIN DU JOB : VENTES_FLASH ══╝  100 lignes extraites
+2026-05-05 11:38:41  INFO      runner                    ════════════════════════════════════════════════════════════════════════
+2026-05-05 11:38:41  INFO      runner                    RÉCAPITULATIF  (2 job(s))
+2026-05-05 11:38:41  INFO      runner                    ════════════════════════════════════════════════════════════════════════
+2026-05-05 11:38:41  INFO      runner                      LISTE_USERS                        114 lignes  ✅ OK
+2026-05-05 11:38:41  INFO      runner                      VENTES_FLASH                       100 lignes  ✅ OK
+2026-05-05 11:38:41  INFO      runner                    ════════════════════════════════════════════════════════════════════════
+2026-05-05 11:38:41  INFO      runner                    Tous les jobs ont réussi.
+2026-05-05 11:38:41  INFO      connection                Connexion Oracle fermée.
