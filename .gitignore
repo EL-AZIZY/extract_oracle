@@ -1,0 +1,15 @@
+# Credentials — NE JAMAIS versionner
+connection.ini
+oracle_connection.ini
+*.ini
+
+# Données extraites
+exports/
+logs/
+*.checkpoint
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env

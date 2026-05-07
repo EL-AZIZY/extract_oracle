@@ -1,0 +1,25 @@
+# requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+# Dépendances du projet extract_oracle v2
+# Installez avec : pip install -r requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Driver(s) de base de données (installez uniquement ce dont vous avez besoin) ──
+
+# Oracle (choisissez l'un des deux)
+oracledb>=1.4              # Recommandé (python-oracledb, Oracle 12c+)
+# cx_Oracle>=8.0           # Legacy — si oracledb non disponible
+
+# PostgreSQL (pour cible DB-to-DB ou extraction depuis PostgreSQL)
+# psycopg2-binary>=2.9
+
+# MySQL
+# mysql-connector-python>=8.0
+
+# ── Formats de sortie ──────────────────────────────────────────────────────────
+
+# Parquet (format colonnaire compressé Snappy)
+# pyarrow>=14.0
+
+# ── Aucune autre dépendance externe requise ────────────────────────────────────
+# csv, gzip, json, configparser, concurrent.futures → stdlib Python 3.10+
