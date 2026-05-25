@@ -1,0 +1,131 @@
+﻿GUIDE UTILISATEUR (A0)
+Projet: extract_oracle_v2
+
+Objectif
+- Ce job permet de recuperer des donnees d'une base de donnees et de les enregistrer dans des fichiers (CSV, Parquet, JSONL, etc.).
+
+1) Ce qu'il faut avant de commencer
+- Avoir Docker Desktop installe et demarre.
+- Avoir ce dossier sur votre ordinateur:
+  D:\data_pipeline\python\extract_oracle_v2
+
+Important:
+- Si Docker Desktop est ferme, rien ne fonctionnera.
+
+2) Ouvrir le projet
+1. Ouvrir PowerShell
+2. Taper:
+   cd D:\data_pipeline\python\extract_oracle_v2
+
+3) Demarrer les services
+1. Taper:
+   docker compose up -d
+
+2. Verifier que tout est demarre:
+   docker compose ps
+
+Vous devez voir:
+- extract_pg_app
+- extract_pg_postgres
+
+4) Verifier que la configuration est correcte
+1. Taper:
+   docker compose exec extract_pg python main.py --validate
+
+Resultat attendu:
+- "VALIDATION PASSED - READY FOR TESTS."
+
+Si vous voyez "VALIDATION FAILED":
+- Lire les lignes "Reason: ..."
+- Corriger le probleme indique (ex: table inexistante, chemin invalide, etc.)
+
+5) Lancer un seul job (test simple)
+Exemple avec le job "customers":
+docker compose exec extract_pg python main.py --job customers --workers 1
+
+6) Lancer tous les jobs
+docker compose exec extract_pg python main.py --workers 1
+
+Conseil:
+- Utiliser workers=1 pour commencer (plus stable).
+
+7) Voir les logs (ce qui se passe en direct)
+Option 1 (logs application):
+docker compose logs -f extract_pg
+
+Option 2 (fichier de log interne):
+docker compose exec extract_pg tail -f /app/logs/extraction.log
+
+7.b) Voir les logs d'une table precise (SQL dans DBeaver)
+Le projet ecrit aussi un audit en base PostgreSQL dans le schema "log".
+
+Exemple avec le job/table "customers":
+
+1. Historique des executions du job:
+SELECT run_id, job_name, statut, started_at, finished_at, rows_count, error_message
+FROM log.stg_logs
+WHERE job_name = 'customers'
+ORDER BY started_at DESC;
+
+2. Derniers evenements techniques du job:
+SELECT run_id, job_name, event_level, event_message, event_ts
+FROM log.logs_csv
+WHERE job_name = 'customers'
+ORDER BY event_ts DESC
+LIMIT 200;
+
+3. Derniere execution + statut:
+SELECT run_id, statut, rows_count, started_at, finished_at, error_message
+FROM log.stg_logs
+WHERE job_name = 'customers'
+ORDER BY started_at DESC
+LIMIT 1;
+
+4. Logs detaillees de la table d'audit du job:
+SELECT id, run_id, job_name, mode, statut, rows_count, error_message, event_ts
+FROM log.customers
+ORDER BY event_ts DESC
+LIMIT 200;
+
+5. Voir uniquement les erreurs du job:
+SELECT run_id, job_name, statut, error_message, finished_at
+FROM log.stg_logs
+WHERE job_name = 'customers' AND statut = 'ERREUR'
+ORDER BY finished_at DESC;
+
+Remplace "customers" par:
+- employees  -> table log.employees
+- persons    -> table log.persons
+- users_data -> table log.users_data
+
+8) Ou trouver les fichiers exportes
+- Dans le dossier:
+  D:\data_pipeline\python\extract_oracle_v2\exports
+
+9) Arreter proprement
+- Pendant un lancement:
+  Appuyer une fois sur Ctrl+C
+  -> arret propre (les jobs en cours se terminent)
+
+- Appuyer deux fois sur Ctrl+C
+  -> arret force
+
+10) Problemes frequents et solution rapide
+Probleme: "failed to connect to docker API"
+Solution: Ouvrir Docker Desktop et attendre "Engine running", puis relancer.
+
+Probleme: "VALIDATION FAILED"
+Solution: Lire les lignes "Reason: ..." et corriger ce qui est indique.
+
+Probleme: table inexistante
+Solution: Creer la table dans PostgreSQL ou corriger le nom de table dans la configuration.
+
+11) Commandes utiles (copier/coller)
+cd D:\data_pipeline\python\extract_oracle_v2
+docker compose up -d
+docker compose ps
+docker compose exec extract_pg python main.py --validate
+docker compose exec extract_pg python main.py --job customers --workers 1
+docker compose exec extract_pg python main.py --workers 1
+docker compose logs -f extract_pg
+docker compose exec extract_pg sh -lc "grep customers /app/logs/extraction.log | tail -n 200"

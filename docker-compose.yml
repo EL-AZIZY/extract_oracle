@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: extract_pg_postgres
+    environment:
+      POSTGRES_DB: datawarehouse
+      POSTGRES_USER: extract
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+    ports:
+      - "5434:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U extract -d datawarehouse"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  extract_pg:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: extract_pg_app
+    working_dir: /app
+    environment:
+      PG_PASSWORD: ${PG_PASSWORD}
+      # DB_PASSWORD: ${PG_PASSWORD}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./:/app
+      - ./logs:/app/logs
+      - ./exports:/app/exports
+    command: ["sleep", "infinity"]
+
+volumes:
+  pg_data:
