@@ -1,5 +1,5 @@
-﻿GUIDE UTILISATEUR (A0)
-Projet: extract_oracle_v2
+﻿GUIDE UTILISATEUR
+Projet: extract_Pg_V3
 
 Objectif
 - Ce job permet de recuperer des donnees d'une base de donnees et de les enregistrer dans des fichiers (CSV, Parquet, JSONL, etc.).
@@ -7,7 +7,7 @@ Objectif
 1) Ce qu'il faut avant de commencer
 - Avoir Docker Desktop installe et demarre.
 - Avoir ce dossier sur votre ordinateur:
-  D:\data_pipeline\python\extract_oracle_v2
+  D:\data_pipeline\python\extract_Pg_V3
 
 Important:
 - Si Docker Desktop est ferme, rien ne fonctionnera.
@@ -15,7 +15,7 @@ Important:
 2) Ouvrir le projet
 1. Ouvrir PowerShell
 2. Taper:
-   cd D:\data_pipeline\python\extract_oracle_v2
+   cd D:\data_pipeline\python\extract_Pg_V3
 
 3) Demarrer les services
 1. Taper:
@@ -59,7 +59,7 @@ docker compose exec extract_pg tail -f /app/logs/extraction.log
 7.b) Voir les logs d'une table precise (SQL dans DBeaver)
 Le projet ecrit aussi un audit en base PostgreSQL dans le schema "log".
 
-Exemple avec le job/table "customers":
+Exemple avec le job"customers":
 
 1. Historique des executions du job:
 SELECT run_id, job_name, statut, started_at, finished_at, rows_count, error_message
@@ -93,14 +93,9 @@ FROM log.stg_logs
 WHERE job_name = 'customers' AND statut = 'ERREUR'
 ORDER BY finished_at DESC;
 
-Remplace "customers" par:
-- employees  -> table log.employees
-- persons    -> table log.persons
-- users_data -> table log.users_data
-
 8) Ou trouver les fichiers exportes
 - Dans le dossier:
-  D:\data_pipeline\python\extract_oracle_v2\exports
+  D:\data_pipeline\python\extract_Pg_V3\exports
 
 9) Arreter proprement
 - Pendant un lancement:
@@ -121,7 +116,7 @@ Probleme: table inexistante
 Solution: Creer la table dans PostgreSQL ou corriger le nom de table dans la configuration.
 
 11) Commandes utiles (copier/coller)
-cd D:\data_pipeline\python\extract_oracle_v2
+cd D:\data_pipeline\python\extract_Pg_V3
 docker compose up -d
 docker compose ps
 docker compose exec extract_pg python main.py --validate
